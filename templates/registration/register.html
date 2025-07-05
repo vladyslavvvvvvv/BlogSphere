@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" style="font-size: larger; padding: 7mm;">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>{{ field.label }}</p>
+        <p>{{ field }}</p>
+
+        {% endfor %}
+        <button class="btn btn-outline-success me-2" type="submit" value="send" style="font-size: xx-large; width: 5cm;">register</button>
+        
+    </form>
+{% endblock %}

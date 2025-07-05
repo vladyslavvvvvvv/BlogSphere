@@ -8,9 +8,9 @@ class Post(models.Model):
     describition = models.TextField(blank=True, null=True)
     file = models.FileField(upload_to="file/",blank=True, null=True)
     class Meta:
-        ordering=["pub_date"]
-        verbose_name = "post"
-        verbose_name_plural = "posts"
+        ordering=["created_at"]
+    def __str__(self):
+        return self.title
 
 class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -18,6 +18,6 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     comment_file = models.FileField(upload_to="comment_file/", blank=True, null=True)
     class Meta: 
-        ordering=["pub_date"]
-        verbose_name = "comment"
-        verbose_name_plural = "comments"
+        ordering=["created_at"]
+    def __str__(self):
+        return self.content
