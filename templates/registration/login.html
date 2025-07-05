@@ -1,3 +1,8 @@
 {% extends 'base.html' %}
 {%block content %}
+<form style="    font-size: xx-large;color: aliceblue;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;outline-style: dashed;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-success" type="submit">Login</button>
+</form>
 {% endblock %}
