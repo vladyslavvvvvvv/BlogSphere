@@ -1,4 +1,43 @@
 .register_field_label{
-    color: azure;
+    color: rgb(85, 93, 93);
     text-align: center;
+}
+.content{
+    color: rgb(77, 81, 85);
+}
+.main{
+    text-align: center;
+}
+.sign{
+    text-align: justify;
+}
+.invisible{
+    padding-bottom: 100px;
+}
+.des{
+    outline-style: dashed;
+    outline-color: rgb(30, 24, 24);
+    color: rgb(202, 214, 224);
+    background-color: rgb(62, 66, 83);
+    text-align: center;
+
+}
+.postdate{
+    float: right;
+}
+.postcontainer{
+    width: 35%;
+    margin:auto
+}
+.btn_create{
+    color: rgb(203, 55, 55);
+}
+.createpostcontainer{
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    width: fit-content;
 }

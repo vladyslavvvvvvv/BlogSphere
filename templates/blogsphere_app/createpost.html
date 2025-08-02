@@ -1,3 +1,19 @@
 {% extends 'base.html' %}
 {%block content %}
+<div class="createpostcontainer">
+<form method="post" alt="you must registered or logged in">
+    {% csrf_token %}
+    {% for field in form %}
+    <p class="labelfield"> {{field.label}} </p>
+    <p class="field"> {{field}} </p>
+    {% endfor %}
+
+
+    <button class="btn btn-outline-success me-2" type="submit" value="send">Submit</button>
+    <button class="btn btn-sm btn-outline-secondary" onclick="history.back()" >Go Back</button>
+
+
+
+</form>
+</div>
 {% endblock %}

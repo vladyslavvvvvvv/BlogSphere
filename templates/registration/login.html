@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {%block content %}
-<form style="    font-size: xx-large;color: aliceblue;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;outline-style: dashed;">
+<p aria-hidden="true" class="invisible"> this text is invisible</p>
+<hr>
+<form method="post" style="    font-size:xx-large;color: rgb(108, 114, 120);font-family:monospace; text-align: center; text-shadow: 1px;font-weight: 200;">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-outline-success" type="submit">Login</button>
 </form>
+<hr>
 {% endblock %}

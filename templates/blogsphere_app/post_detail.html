@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{% block content %}
+<legend style="text-align: center;">
+{% load static %}
+<h3><img src="{% static 'icon.png' %}" height="25px" width="25px">  {{post.title}}</h3>
+
+{% if post.file %}
+<p><img src="{{post.file.url}}" width="300px" alt="couldnt load the file"></p>
+{% endif %}
+
+<div class="postcontainer">
+<p class="des">{{post.describition}}</p>
+<span class="postdate">{{post.created_at}}</span>
+</div>
+
+</legend>
+{% for comment in task.comment_set.all %}
+        <legend>
+        <h3><img src="{% static 'icon.png' %}" height="25px" width="25px">  {{post.title}}</h3>
+        <textarea name="content" cols="40" rows="10" required="" id="id_content" style="font-family: 'Times New Roman', Times, serif; text-align: center;   border: 1px solid gray; padding: 20px; background-color: whitesmoke; color: black;" disabled>{{comment.content}}</textarea>
+        <p>created at: {{comment.created_at}}</p>
+        {% if comment.file %}
+        <p><img src="{{comment.comment_file.url}}" width="300px" alt="couldnt load the file"></p>
+        {% endif %}
+        </legend>
+        <hr>
+
+{% endfor %}
+{% endblock %}
