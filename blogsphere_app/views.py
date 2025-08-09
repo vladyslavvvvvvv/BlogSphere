@@ -1,3 +1,4 @@
+from turtle import title
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -30,6 +31,14 @@ class PostListView(ListView):
     model = Post
     template_name = "blogsphere_app/mainpage.html"
     context_object_name = "all_posts"
+
+    def get_queryset(self):
+        if self.request.GET.get("search", False):
+            query = self.request.GET.get("search", False)
+            result = Post.objects.filter(title__icontains = query)
+            return result
+        return super().get_queryset()
+            
 
 class PostDetailView(DetailView):
     model = Post

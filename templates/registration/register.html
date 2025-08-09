@@ -3,7 +3,7 @@
     <form method="post" style="font-size: xx-large; padding: 7mm;color: aliceblue; text-align:center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;outline-style: groove;">
         {% csrf_token %}
         {%if form.errors %}
-        <div>{{ form.errors }}</div>
+        <div class="vpla">{{ form.errors }}</div>
         {% endif %}
         {% for field in form %}
         <p class="register_field_label">{{ field.label }}</p>
