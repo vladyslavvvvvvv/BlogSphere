@@ -2,7 +2,7 @@
 {% block content %}
     <form method="post" style="font-size: xx-large; padding: 7mm;color: aliceblue; text-align:center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;outline-style: groove;">
         {% csrf_token %}
-        {%if form.errors %}
+        {% if form.errors %}
         <div class="vpla">{{ form.errors }}</div>
         {% endif %}
         {% for field in form %}

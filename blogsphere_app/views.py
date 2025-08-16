@@ -59,6 +59,10 @@ class PostDetailView(DetailView):
                 new_comment.post = self.get_object()
                 new_comment.user = self.request.user
                 new_comment.save()
+                print(new_comment)
+                print(self.get_object())
+            else:
+                print("not valid")
             return redirect(request.path_info)
         else:
             return HttpResponse("Try to login or register", status=403),render(request, 'post_detail.html', {
