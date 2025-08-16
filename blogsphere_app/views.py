@@ -31,6 +31,7 @@ class PostListView(ListView):
     model = Post
     template_name = "blogsphere_app/mainpage.html"
     context_object_name = "all_posts"
+    paginate_by = 7
 
     def get_queryset(self):
         if self.request.GET.get("search", False):
@@ -55,13 +56,17 @@ class PostDetailView(DetailView):
             print("-------------")
             if form.is_valid():
                 new_comment: Comment = form.instance
-                new_comment.task = self.get_object()
+                new_comment.post = self.get_object()
                 new_comment.user = self.request.user
                 new_comment.save()
-        
             return redirect(request.path_info)
         else:
-            return HttpResponse("Try to login or register", status=403)
+            return HttpResponse("Try to login or register", status=403),render(request, 'post_detail.html', {
+                    'post': Post,
+                    'form': form,
+                    })
+        
+
 
 
 
@@ -78,7 +83,7 @@ class DeletePostView(DeleteView,UserIsOwnerMixin):
 class CommentCreateView(CreateView, UserIsOwnerMixin):
     model = Comment
     form_class = CommentForm
-    template_name = "blogsphere_app/create_comment.html"
+    template_name = "blogsphere_app/createcomment.html"
     success_url = reverse_lazy("main-page")
 
     def form_valid(self, form):

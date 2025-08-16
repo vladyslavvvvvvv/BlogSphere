@@ -32,15 +32,24 @@
 .btn_create{
     color: rgb(203, 55, 55);
 }
-.createpostcontainer{
+.createcommentcontainer{
     margin: auto;
     border: 1px solid black;
     border-radius: 5%;
     padding-left: 20px;
     padding-right: 20px;
-    
+
     width: fit-content;
 }
+.createpostcontainer{
+    margin: auto;
+    
+    border: 1px solid black;
+    border-radius: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    width: fit-content;}
 .div_auth{
     color: rgb(15, 8, 8);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -70,4 +79,13 @@
 .comment{
     margin: auto;
     width: 30%;
+    text-align: center;
+}
+.nocomment{
+    margin: auto;
+    color: black;
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 30%;
+
 }
