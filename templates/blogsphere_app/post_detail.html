@@ -16,7 +16,7 @@
 </div>
 {% if user.is_authenticated %}
 <button style="font-size: large;margin: auto;margin-right: 2%;margin-top: 1%;margin-bottom: 1%;">
-<a href="{% url 'create-comment' %}" >Create Comment</a>
+<a href="{% url 'create-comment' %}?post_id={{post.id}}" >Create Comment</a>
 </button>
 
 {% else %}

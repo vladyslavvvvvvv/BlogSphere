@@ -9,5 +9,7 @@ urlpatterns = [
     path("post/detail/<int:pk>", views.PostDetailView.as_view(), name="post-detail"),
     path("post/create/", views.CreatePostView.as_view(), name="post-create"),
     path("register/", views.Register.as_view(), name="register"),
-    path("create/comment/", views.CommentCreateView.as_view(),name="create-comment")
+    path("create/comment/", views.CommentCreateView.as_view(),name="create-comment"),
+    path("user/list/", views.UserListView.as_view(),name="user-list"),
+    path("user/detail/<int:pk>",views.UserDetailView.as_view(),name="user-detail")
       ]

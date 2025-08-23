@@ -1,7 +1,7 @@
 from turtle import title
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView,ListView, DeleteView,UpdateView,DetailView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -88,11 +88,15 @@ class CommentCreateView(CreateView, UserIsOwnerMixin):
     model = Comment
     form_class = CommentForm
     template_name = "blogsphere_app/createcomment.html"
-    success_url = reverse_lazy("main-page")
+    def get_success_url(self):
+        return reverse("post-detail", kwargs={"pk":self.request.GET.get("post_id")})
 
     def form_valid(self, form):
-        user = self.request.user
-        form.instance.user = user
+        new_comment: Comment = form.instance
+        new_comment.post = Post.objects.get(id=self.request.GET.get("post_id"))
+        new_comment.user = self.request.user
+        new_comment.save()
+
         
 
         return super().form_valid(form)
@@ -104,3 +108,19 @@ class CommentEditView(UpdateView, UserIsOwnerMixin):
     form_class = CommentForm
     template_name = "blogsphere_app/edit_comment.html"
     success_url = reverse_lazy("main-page")
+class UserListView(ListView):
+    model = User
+    template_name = "blogsphere_app/userlist.html"
+    context_object_name = "all_posts"
+
+    def get_queryset(self):
+        if self.request.GET.get("search", False):
+            query = self.request.GET.get("search", False)
+            result = User.objects.filter(username__icontains = query)
+
+            return result
+        return super().get_queryset()
+            
+class UserDetailView(DetailView):
+    model = User
+    template_name = "blogsphere_app/user_detail.html"

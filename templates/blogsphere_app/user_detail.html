@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% block content %}
+<legend style="text-align: center;">
+{% load static %}
+<h3 class="h3user"><img src="{% static 'icon.png' %}" height="25px" width="25px"> {{user.username}} </h3>
+{% for post in user.post_set.all %}
+<legend class="main">
+    {% load static %}
+
+    <h3><a href="{% url 'post-detail' post.id %}" >  {{post.title}}</a></h3>
+    <span>{{post.created_at}}</span>
+    <hr>
+</legend>
+{% endfor %}
+{% endblock %}

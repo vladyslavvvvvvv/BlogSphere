@@ -89,3 +89,21 @@
     margin-bottom: 30%;
 
 }
+.h3user{
+    margin-bottom:  33px;
+}
+.formbar{
+    display:inline;
+    margin: auto;
+    width: fit-content;
+
+}
+.refreshbutton{
+    font-size: medium;
+
+}
+.formdiv{
+    margin: auto;
+    width: fit-content;
+    font-size: large;
+}

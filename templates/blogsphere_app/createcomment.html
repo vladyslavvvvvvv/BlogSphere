@@ -9,11 +9,11 @@
             color: rgb(11, 10, 10);
             font-size: larger;
             width: fit-content;">
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% for field in form %}
-    <p class="labelfield"> {{field.label}} </p>
-    <p class="field"> {{field}} </p>
+    <p class="labelfield2"> {{field.label}} </p>
+    <p class="field2"> {{field}} </p>
     {% endfor %}
 
 

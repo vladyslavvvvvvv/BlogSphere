@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block content %}
+<div class="formdiv">
+<form method="get" class="formbar">  
+<input type="search" class="searchbar" value="" id="search" name="search">
+<button type="submit">Search a user!</button>
+
+</form>
+<a href="{% url 'user-list' %}" class="btn btn-primary-outline refreshbutton" >Refresh!</a> 
+</div>
+{% for user in all_posts %}
+
+<legend class="main">
+    {% load static %}
+
+
+
+    <p style="font-size: xx-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: black;font-weight: 500;">
+    <img src="{% static 'icon.png' %}" height="29px" width="29px">
+    <a href="{% url 'user-detail' user.id %}">{{user.username}}</a>
+    </p>
+    <hr>
+
+{% endfor %}
+{% endblock %}
