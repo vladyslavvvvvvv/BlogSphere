@@ -3,17 +3,17 @@
 
 
 
-<button class="btn btn-light" class="btn-create">
+<button class="btn btn-light createbtn" class="btn-create">
     <a href="{% url 'post-create' %}">Create Post</a>
 </button>
 
 {% for post in all_posts %}
-<legend class="main">
+<legend class="main" >
     {% load static %}
 
     <h2><img src="{% static 'icon.png' %}" height="25px" width="25px">{{post.user}}</h2>
     <h3><a href="{% url 'post-detail' post.id %}" >  {{post.title}}</a></h3>
-    <span>{{post.created_at}}</span>
+    <span class="spanpost">{{post.created_at}}</span>
     <hr>
 </legend>
 {% endfor %}

@@ -10,13 +10,13 @@
 </div>
 {% for user in all_posts %}
 
-<legend class="main">
+<legend class="userlistmain">
     {% load static %}
 
 
 
     <p style="font-size: xx-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: black;font-weight: 500;">
-    <img src="{% static 'icon.png' %}" height="29px" width="29px">
+    <img src="{% static 'icon.png' %}" height="35px" width="35px">
     <a href="{% url 'user-detail' user.id %}">{{user.username}}</a>
     </p>
     <hr>
