@@ -11,7 +11,7 @@
 <legend class="main" >
     {% load static %}
 
-    <h2><img src="{% static 'icon.png' %}" height="25px" width="25px">{{post.user}}</h2>
+    <h2 class="mainame"><img src="{% static 'icon.png' %}" height="25px" width="25px">{{post.user}}</h2>
     <h3><a href="{% url 'post-detail' post.id %}" >  {{post.title}}</a></h3>
     <span class="spanpost">{{post.created_at}}</span>
     <hr>
