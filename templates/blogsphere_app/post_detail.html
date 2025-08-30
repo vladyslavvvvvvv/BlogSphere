@@ -3,7 +3,22 @@
 <legend style="text-align: center;">
 {% load static %}
 <h3><img src="{% static 'icon.png' %}" height="25px" width="25px"> {{post.user.username}}  </h3>
-<p style="font-style: oblique;color: black;font-weight: 450;">{{post.title}}</p>
+
+
+{% if post.user == request.user %}
+    <div>
+        <button type="button" class="btn btn-danger">
+            <a href="{% url 'delete-view' post.id %}" style="color: white;">Delete the post</a>
+        </button>
+    </div>
+{% endif %}
+
+
+<div style="font-style: oblique;color: black;font-weight: 450;">{{post.title}}</div>
+
+
+
+
 
 {% if post.file %}
 <p><img src="{{post.file.url}}" width="300px" class="filedet" alt="couldnt load the file"></p>
